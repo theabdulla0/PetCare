@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import LayoutDashboard from "./layoutDashboard";
+import LayoutDashboard from "./LayoutDashboard";
 
 function Dashboard() {
   const user = JSON.parse(localStorage.getItem("user"));
