@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import LayoutDashboard from "../layoutDashboard";
+import LayoutDashboard from "../LayoutDashboard";
 import { LuPawPrint, LuHeart, LuNotebook } from "react-icons/lu";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";

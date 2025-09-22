@@ -12,7 +12,7 @@ import {
   LuChevronRight,
   LuSearch,
 } from "react-icons/lu";
-import LayoutDashboard from "../layoutDashboard";
+import LayoutDashboard from "../LayoutDashboard";
 import { useNavigate } from "react-router-dom";
 
 function AppointmentList() {

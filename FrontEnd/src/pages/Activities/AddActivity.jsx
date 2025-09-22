@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import LayoutDashboard from "../layoutDashboard";
+import LayoutDashboard from "../LayoutDashboard";
 import {
   LuPawPrint,
   LuActivity,

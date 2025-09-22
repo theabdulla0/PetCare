@@ -8,7 +8,7 @@ import {
   LuChevronRight,
 } from "react-icons/lu";
 import { Link, useNavigate } from "react-router-dom";
-import LayoutDashboard from "../layoutDashboard";
+import LayoutDashboard from "../LayoutDashboard";
 
 function PetList() {
   const dispatch = useDispatch();

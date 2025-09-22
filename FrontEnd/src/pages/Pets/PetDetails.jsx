@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { LuPawPrint } from "react-icons/lu";
 import { useSelector, useDispatch } from "react-redux";
 import { deletePet, fetchPets } from "../../features/pet/petSlice";
-import LayoutDashboard from "../layoutDashboard";
+import LayoutDashboard from "../LayoutDashboard";
 
 function PetDetails() {
   const { id } = useParams();

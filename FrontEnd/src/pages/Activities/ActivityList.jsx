@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import LayoutDashboard from "../layoutDashboard";
+import LayoutDashboard from "../LayoutDashboard";
 import { LuSearch, LuFilter } from "react-icons/lu";
 import { ToastContainer, toast } from "react-toastify";
 import DeleteButton from "../../components/common/DeletButton";

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { updatePet, fetchPetById } from "../../features/pet/petSlice";
-import LayoutDashboard from "../layoutDashboard";
+import LayoutDashboard from "../LayoutDashboard";
 
 function EditPet() {
   const { id } = useParams();
@@ -30,7 +30,6 @@ function EditPet() {
 
   // Populate form once currentPet is available
   useEffect(() => {
-    
     if (currentPet && currentPet._id === id) {
       setFormData({
         name: currentPet.name || "",
@@ -51,7 +50,9 @@ function EditPet() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!currentPet) return;
-    await dispatch(updatePet({ id: currentPet._id, updates: formData })).unwrap();
+    await dispatch(
+      updatePet({ id: currentPet._id, updates: formData })
+    ).unwrap();
     navigate(`/pets/${currentPet._id}`);
   };
 
@@ -152,7 +153,9 @@ function EditPet() {
 
             {/* Medical History */}
             <div>
-              <label className="block font-semibold mb-1">Medical History</label>
+              <label className="block font-semibold mb-1">
+                Medical History
+              </label>
               <textarea
                 name="medicalHistory"
                 value={formData.medicalHistory}
