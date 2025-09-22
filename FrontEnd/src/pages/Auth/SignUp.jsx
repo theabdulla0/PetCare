@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { signUp } from "../../features/auth/authSlice"; // make sure path is correct
+import { resetAuthState, signUp } from "../../features/auth/authSlice"; // make sure path is correct
 import { Link, useNavigate } from "react-router-dom";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 
 function SignUp() {
   const [name, setName] = useState("");
@@ -12,25 +12,34 @@ function SignUp() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { loading, error, message } = useSelector((state) => state.auth);
+  const toastId = React.useRef(null);
 
+  // Reset state on mount
   useEffect(() => {
-    if (message && !error) {
-      toast.success("Signup successful! Redirecting to login...");
-      setTimeout(() => navigate("/login"), 1500);
+    dispatch(resetAuthState());
+  }, [dispatch]);
+
+  // Watch message & error
+  useEffect(() => {
+    if (message && !error && !toast.isActive(toastId.current)) {
+      toastId.current = toast.success("Signup successful! Redirecting...", {
+        onClose: () => navigate("/login"),
+      });
     }
-    if (error) {
-      toast.error(error);
+    if (error && !toast.isActive(toastId.current)) {
+      toastId.current = toast.error(error);
     }
   }, [message, error, navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setFormError("");
+    dispatch(resetAuthState()); // reset before new signup
 
     if (!name || !email || !password) {
       setFormError("Please fill in all fields");
       return;
     }
-
     if (password.length < 6) {
       setFormError("Password must be at least 6 characters");
       return;
@@ -42,7 +51,6 @@ function SignUp() {
       setEmail("");
       setPassword("");
     } catch (err) {
-      console.error("Signup failed:", err);
       setFormError(err || "Signup failed. Please try again.");
     }
   };
@@ -101,7 +109,6 @@ function SignUp() {
             </Link>
           </p>
         </form>
-        <ToastContainer position="top-right" autoClose={3000} />
       </div>
     </div>
   );

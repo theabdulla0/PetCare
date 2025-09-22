@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const API_URL = process.env.REACT_APP_API_URL;
+const API_URL = "https://petcare-j2ff.onrender.com/api";
 
 // ---------------------- SIGN UP ----------------------
 export const signUp = createAsyncThunk(
@@ -102,7 +102,12 @@ const authSlice = createSlice({
     error: null,
     message: null, // for forgot/reset password success messages
   },
-  reducers: {},
+  reducers: {
+    resetAuthState: (state) => {
+      state.error = null;
+      state.message = null;
+    },
+  },
   extraReducers: (builder) => {
     // SignUp
     builder
@@ -192,3 +197,4 @@ const authSlice = createSlice({
 });
 
 export default authSlice.reducer;
+export const { resetAuthState } = authSlice.actions;

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import { login } from "../../features/auth/authSlice";
 
 function Login() {
@@ -86,7 +86,6 @@ function Login() {
           </Link>
         </p>
       </div>
-      <ToastContainer position="top-right" autoClose={3000} />
     </div>
   );
 }

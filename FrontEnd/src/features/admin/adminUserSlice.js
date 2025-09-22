@@ -1,7 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const API_URL = process.env.REACT_APP_API_URL;
+const API_URL = "https://petcare-j2ff.onrender.com/api";
+
 
 // --------------------- USERS ---------------------
 export const fetchUsers = createAsyncThunk(
