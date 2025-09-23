@@ -19,12 +19,19 @@ import AdminUsersList from "./pages/Admin/AdminUsersList";
 import AdminPetsList from "./pages/Admin/AdminPetsList";
 import AdminProtected from "./components/admin/AdminProtected";
 import { ToastContainer } from "react-toastify";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Blog from "./pages/Blog";
+import Profile from "./pages/Profile";
 
 function App() {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" index element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact-us" element={<Contact />} />
+        <Route path="/blog" element={<Blog />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
 
@@ -46,6 +53,15 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route
+          path="/profile"
+          element={
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>
+          }
+        />
+
         <Route
           path="/pets/add"
           element={

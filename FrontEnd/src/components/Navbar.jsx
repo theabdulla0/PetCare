@@ -61,13 +61,13 @@ const Navbar = () => {
           About
         </Link>
         <Link
-          to="/features"
+          to="/blog"
           className="text-gray-700 hover:text-green-500 transition-colors"
         >
-          Features
+          Blog
         </Link>
         <Link
-          to="/contact"
+          to="/contact-us"
           className="text-gray-700 hover:text-green-500 transition-colors"
         >
           Contact

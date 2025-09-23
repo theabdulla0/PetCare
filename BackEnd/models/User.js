@@ -11,6 +11,13 @@ const UserSchema = new mongoose.Schema(
       enum: ["active", "inactive"],
       default: "active",
     },
+    profile: {
+      imageURL: { type: String, trim: true },
+      address: { type: String, trim: true },
+      phone: { type: Number, maxLength: 10 },
+      city: { type: String, trim: true },
+      country: { type: String, trim: true },
+    },
   },
   { timestamps: true }
 );

@@ -26,6 +26,7 @@ app.use("/api/appointments", require("./routes/appointment.route"));
 app.use("/api/activity", require("./routes/activity.route"));
 app.use("/api/insurance", require("./routes/insurance.route"));
 app.use("/api/admin", require("./routes/admin.route"));
+app.use("/api", require("./routes/contact.route"));
 
 app.use((req, res) => {
   res.status(404).send("404 Not Found");

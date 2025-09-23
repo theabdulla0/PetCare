@@ -138,6 +138,7 @@ const authSlice = createSlice({
           name: action.payload.name,
           email: action.payload.email,
           role: action.payload.role,
+          createdAt: action.payload.createdAt,
         };
         state.token = action.payload.token;
 

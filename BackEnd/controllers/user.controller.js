@@ -30,6 +30,7 @@ const createUser = async (req, res) => {
       name: user.name,
       email: user.email,
       role: user.role,
+      createdAt: user.createdAt,
       token: generateToken(user._id),
     });
   } catch (error) {
@@ -54,14 +55,16 @@ const loginUser = async (req, res) => {
     if (!match) {
       return res.status(400).json({ message: "Invalid Credential" });
     }
-    return res.status(201).json({
+    const tokenPayload = { id: user._id, role: user.role };
+    return res.status(200).json({
       success: true,
-      message: "User Login",
+      message: "User logged in",
       _id: user._id,
       name: user.name,
       email: user.email,
       role: user.role,
-      token: generateToken(user._id),
+      createdAt: user.createdAt,
+      token: generateToken(tokenPayload),
     });
   } catch (error) {
     return res.status(500).json({ success: false, error: error.message });
@@ -121,7 +124,6 @@ const resetPassword = async (req, res) => {
     res.status(500).json({ message: "Reset failed", error: error.message });
   }
 };
-
 
 
 

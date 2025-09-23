@@ -33,7 +33,7 @@ const Sidebar = () => {
     },
     {
       name: "Profile",
-      path: "/dashboard/profile",
+      path: "/profile",
       icon: <LuCircleUser className="w-5 h-5" />,
     },
     {
